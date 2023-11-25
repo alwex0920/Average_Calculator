@@ -1,4 +1,5 @@
- name: Build
+[admin@fedser KivyLC]$ cat .github/workflows/build.yml 
+name: Build
 on:
   push:
     branches-ignore:
@@ -56,4 +57,4 @@ jobs:
 
       - name: Push binary to data branch
         if: github.event_name == 'push'
-        run: python master/.ci/move_binary.py "${{ steps.buildozer.outputs.filename }}" master data bin
+        run: python master/move_binary.py "${{ steps.buildozer.outputs.filename }}" master data bin
